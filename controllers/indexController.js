@@ -1,11 +1,37 @@
 const moviesModel = require("../models/moviesModel");
 
-async function showHomepage (req, res) {
+function showHomepage (req, res) {
+  moviesModel.find({}).select('poster') //using model to find movies and filter just the posters
+  .then(movies => {    
+    let moviePosters = []; //creating an empty array
+    movies.forEach(element => moviePosters.push(element.poster)); //passing the poster values (url) into the array
+    res.render('index', {moviePosters: moviePosters}); //loading page and linking moviePosters array to moviePosters in ejs
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
+}
+
+module.exports = { showHomepage };
+
+
+
+
+//FIRST APPROACH WITH ASYNC FUNCTION
+/* async function showHomepage (req, res) {
     try{
         res.render('index');
-        const movies = await moviesModel.find();
-        console.log(movies);
-       /*  let newMovies = await moviesModel.create(
+        const movies = await moviesModel.find({}).select('poster');
+        let moviePosters = [];
+        movies.forEach(element => moviePosters.push(element.poster));
+        console.log(moviePosters);
+    } catch(err) {
+        console.log(err)
+    }
+}; */
+
+// PUT THIS INSIDE showHomepage function try TO CREATE movies COLLECTION ON MONGODB ATLAS
+    /*  let newMovies = await moviesModel.create(
             {
               category: 'Adventure',
               poster: 'https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@._V1_UX182_CR0,0,182,268_AL_.jpg',
@@ -174,14 +200,6 @@ async function showHomepage (req, res) {
               year: 2013,
               rating: 8.2
             }); */
-    } catch(err) {
-        console.log(err)
-    }
-};
-
- 
-
-module.exports = { showHomepage };
 
 
 

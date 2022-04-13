@@ -1,8 +1,12 @@
 <%- include ('./partials/header'); %>
 
     <h1>Welcome to the movie app!</h1>
-    <img class="movie-logo"
-        src="https://static.vecteezy.com/system/resources/previews/004/332/587/large_2x/paper-glass-with-popcorn-glyph-icon-pop-corn-silhouette-symbol-negative-space-isolated-illustration-vector.jpg"
-        alt="movie-logo">
+    <div class="poster-container">
+        <% for (let i=0; i < moviePosters.length; i++){ %>
+            <div class="poster-item">
+                <img src="<%= moviePosters[i] %>" alt=""> 
+            </div>
+            <% } %>
+    </div>
 
-<%- include ('./partials/footer'); %>
+    <%- include ('./partials/footer'); %>

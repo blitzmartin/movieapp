@@ -35,7 +35,15 @@ h2 {
     padding: 1rem 10rem;
 }
 
-.movie-logo {
+.poster-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    text-align: center;
+}
+
+.poster-item {
     width: 100%;
-    margin: 0 auto;
+    object-fit: cover;
+    margin: 1rem 0;
 }
