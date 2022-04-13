@@ -1,5 +1,13 @@
 <%- include ('./partials/header'); %>
 
-    <h1>LOGIN</h1>
+    <h1>ENTER YOUR CREDENTIALS TO LOGIN</h1>
+    <form action="/" method="post">
+        <label for="username">Email</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password">
+        <button type="submit">Login</button>
+    </form>
+    <a href="register">Not a member yet? Register here</a>
 
 <%- include ('./partials/footer'); %>
