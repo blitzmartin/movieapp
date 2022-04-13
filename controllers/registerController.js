@@ -10,7 +10,7 @@ function showRegister (req, res) {
 async function createUser (req, res) {
     try{
         const newUser = await userModel.create({username: req.body.username},{password: req.body.password});
-        res.redirect('/');
+        res.redirect('/');  //when working, redirect to logged homepage
     } catch(err) {
         console.log(err)
     }
