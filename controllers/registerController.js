@@ -2,7 +2,6 @@ const userModel = require("../models/userModel");
 
 function showRegister (req, res) {
     res.render('register');
-    console.log("Utility msg: registration routing working!")
 };
 
 //CRUD operations
