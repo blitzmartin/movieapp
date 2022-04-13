@@ -2,15 +2,15 @@
 const express = require('express');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 
 // Require routes
 const homeRouter = require('./routes/indexRoute');
 
 // Connect to MongoDB server on port 27017 and database
-const DB_SERVER = 'mongodb://localhost:27017';
-const database = 'movieDB';
-mongoose.connect(`${DB_SERVER}/${database}`)
-.then(() => console.log(`Connected to DB server... reading: ${database}`))
+dotenv.config();
+mongoose.connect(process.env.DB_SERVER)
+.then(() => console.log('Connected to DB server...'))
 .catch((err) => console.log(err));
 
 
