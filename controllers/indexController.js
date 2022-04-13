@@ -3,7 +3,8 @@ const moviesModel = require("../models/moviesModel");
 async function showHomepage (req, res) {
     try{
         res.render('index');
-        
+        const movies = await moviesModel.find();
+        console.log(movies);
        /*  let newMovies = await moviesModel.create(
             {
               category: 'Adventure',
@@ -178,8 +179,7 @@ async function showHomepage (req, res) {
     }
 };
 
-
-  
+ 
 
 module.exports = { showHomepage };
 
