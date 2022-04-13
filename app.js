@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 
 // Require routes
 const homeRouter = require('./routes/indexRoute');
+const userRouter= require ('./routes/userRoute'); 
 
 // Connect to MongoDB server on port 27017 and database
 dotenv.config();
@@ -25,6 +26,8 @@ app.use(express.json());
 
 // Use routes
 app.use('/', homeRouter);
+app.use('/register', userRouter); //CHECK ENDPOINT
+
 
 // Server running
 const port = process.env.PORT || 3000;
