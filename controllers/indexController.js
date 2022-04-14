@@ -1,11 +1,9 @@
 const moviesModel = require("../models/moviesModel");
 
 function showHomepage (req, res) {
-  moviesModel.find({}).select('poster') //using model to find movies and filter just the posters
-  .then(movies => {    
-    let moviePosters = []; //creating an empty array
-    movies.forEach(element => moviePosters.push(element.poster)); //passing the poster values (url) into the array
-    res.render('index', {moviePosters: moviePosters}); //loading page and linking moviePosters array to moviePosters in ejs
+  moviesModel.find({}).select('poster') //using model to find movies
+  .then(data => {    
+    res.render('index', {movies: data}); //loading page and linking data array to movies in ejs
   })
   .catch((err)=>{
     console.log(err);
