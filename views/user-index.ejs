@@ -1,0 +1,16 @@
+<%- include ('./partials/header-log'); %>
+
+    <h1>Successfully logged in!</h1>
+    <div class="poster-container">
+        <% for (let i=0; i < movies.length; i++){ %>
+            <div class="poster-item">
+                <img src="<%= movies[i].poster %>" alt="poster-img"> 
+                <p><%= movies[i].title %></p>
+                <form action="" method="post">
+                    <button type="submit" class="btn btn-warning">+</button>
+                </form>
+            </div>
+            <% } %>
+    </div>
+
+<%- include ('./partials/footer'); %>
