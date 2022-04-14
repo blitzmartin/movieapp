@@ -18,11 +18,8 @@ module.exports = { showHomepage };
 //FIRST APPROACH WITH ASYNC FUNCTION
 /* async function showHomepage (req, res) {
     try{
-        res.render('index');
-        const movies = await moviesModel.find({}).select('poster');
-        let moviePosters = [];
-        movies.forEach(element => moviePosters.push(element.poster));
-        console.log(moviePosters);
+        const data = await moviesModel.find({}).select('poster');
+        res.render('index', {movies: data});
     } catch(err) {
         console.log(err)
     }
