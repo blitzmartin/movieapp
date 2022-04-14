@@ -1,3 +1,5 @@
+const userModel = require("../models/userModel");  //it's important to require model when getting or posting thing to db!!
+
 const showLogin = function (req, res) {
     res.render('login');
 }
@@ -5,15 +7,19 @@ const showLogin = function (req, res) {
 const findUser = function (req, res) {
     const username = req.body.username;
     const password = req.body.password;
-    console.log("Login POST routing working!")
 
-    //build function to find user
-    /* if (user exists) {
-        load index for user
-    } else {
-        load page saying cannot find user
-    } */
-
+    //METHOD WITHOUT PASSPORT
+    userModel.findOne({username: username}, function (err, foundUser){
+        if (err) {
+            console.log(err)
+        }   else {
+            if (foundUser){
+                if (foundUser.password === password) {
+                    res.render('success');
+                }
+            }
+        }
+   })
 }
 
 module.exports = { showLogin, findUser };
