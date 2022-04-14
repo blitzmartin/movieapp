@@ -1,8 +1,8 @@
 const moviesModel = require("../models/moviesModel");
 
 function showHomepage (req, res) {
-  moviesModel.find({}).select('poster') //using model to find movies
-  .then(data => {    
+  moviesModel.find({})//using model to find movies
+  .then(data => {
     res.render('index', {movies: data}); //loading page and linking data array to movies in ejs
   })
   .catch((err)=>{
@@ -27,6 +27,8 @@ module.exports = { showHomepage };
         console.log(err)
     }
 }; */
+
+//THIS IS TO FILTER OBJECT: moviesModel.find({}).select('poster')
 
 // PUT THIS INSIDE showHomepage function try TO CREATE movies COLLECTION ON MONGODB ATLAS
     /*  let newMovies = await moviesModel.create(
