@@ -16,6 +16,11 @@
     padding: 0
 }
 
+body {
+    font-family: var(--font-primary);
+    color: var(--col-dark)
+}
+
 h1, h2, h3 {
     text-align: center;
     font-family: var(--font-accent);
@@ -35,7 +40,15 @@ h2 {
     padding: 1rem 10rem;
 }
 
-.movie-logo {
+.poster-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px); /* grid auto wrap */
+    justify-content: center;
+    text-align: center;
+}
+
+.poster-item {
     width: 100%;
-    margin: 0 auto;
+    object-fit: cover;
+    margin: 1rem 0;
 }
