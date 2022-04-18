@@ -9,8 +9,11 @@ function showRegister (req, res) {
 //CREATE
 async function createUser (req, res) {
     try{
-        const newUser = await userModel.create({username: req.body.username, password: req.body.password});
-        res.redirect('/');  //when working, redirect to logged homepage
+        const newUser = await userModel.create({
+            username: req.body.username, 
+            password: req.body.password
+        });
+        res.redirect('success');  //when working, redirect to logged homepage
     } catch(err) {
         console.log(err)
     }
