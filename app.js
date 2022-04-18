@@ -41,6 +41,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
 
+
 //NEW use passport
 /* app.use(passport.initialize());
 app.use(passport.session); */
