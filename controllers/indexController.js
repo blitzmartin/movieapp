@@ -38,7 +38,7 @@ function logOut (req, res) {
     if (err) {
       return next(err);
     }
-    res.redirect('/login')
+    res.redirect('/')
   });
 }
 
