@@ -1,7 +1,11 @@
 const userModel = require("../models/userModel");
 const bcrypt = require('bcrypt');
+const initialize = require('../config/passport-conf')
+const passport = require('passport')
 
-function showRegister (req, res) {
+initialize(passport);
+
+async function showRegister (req, res) {
     res.render('register');
 };
 
