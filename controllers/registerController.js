@@ -1,4 +1,5 @@
 const userModel = require("../models/userModel");
+const bcrypt = require('bcrypt');
 
 function showRegister (req, res) {
     res.render('register');
@@ -7,14 +8,15 @@ function showRegister (req, res) {
 //CRUD operations
 
 //CREATE
-async function createUser (req, res) {
+const createUser = async (req, res) =>{
     try{
+        const hashedPassword = await bcrypt.hash(req.body.password, 10)
         const newUser = await userModel.create({
             username: req.body.username, 
-            password: req.body.password
+            password: hashedPassword 
         });
         res.render('success');  //when working, redirect to logged homepage
-    } catch(err) {
+    } catch (err) {
         console.log(err)
     }
 };

@@ -31,7 +31,8 @@ app.use(flash());
 app.use(session({
   secret: process.env.SESSION_KEY,
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  cookie: {maxAge: 60 * 60 * 1000}
 }))
 
 // Set views and public folders and use body parser
