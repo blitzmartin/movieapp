@@ -23,6 +23,14 @@ function showUserIndex (req, res) {
 function showWatchlist (req, res) {
   moviesModel.find({})//using model to find movies
   .then(data => {
+    /* async function getUser (req, res) {
+    try{
+        const user = await userModel.findOne({});
+        res.render('index', {movies: data}, {name: user.username});
+    } catch(err) {
+        console.log(err)
+    }
+}; */
     res.render('watchlist', {movies: data}); //loading page and linking data array to movies in ejs
   })
   .catch((err)=>{

@@ -5,7 +5,6 @@ const indexController = require('../controllers/indexController')
 router.get('/user', isLoggedIn, indexController.showUserIndex);
 router.get('/watchlist', isLoggedIn, indexController.showWatchlist);
 router.get('/', isNotLoggedIn, indexController.showHomepage);
-
 router.delete('/logout', isLoggedIn,  indexController.logOut)
 
 
