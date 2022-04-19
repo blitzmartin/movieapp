@@ -17,6 +17,8 @@ const findUser = async (req, res) => {
     })(req, res);
 }
 
+module.exports = { showLogin, findUser };
+
 /* 
 const findUser = async (req, res) => {
     const username = req.body.username;
@@ -43,4 +45,3 @@ const findUser = async (req, res) => {
    })
 } */
 
-module.exports = { showLogin, findUser };
