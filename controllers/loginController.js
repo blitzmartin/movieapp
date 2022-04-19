@@ -12,7 +12,7 @@ const showLogin = function (req, res) {
 
 const findUser = async (req, res) => {
     passport.authenticate('local',{
-        successRedirect: '/',
+        successRedirect: '/user',
         failureRedirect: '/login'
     })(req, res);
 }

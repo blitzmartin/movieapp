@@ -10,7 +10,17 @@ function showHomepage (req, res) {
   })
 }
 
-module.exports = { showHomepage };
+function showUserIndex (req, res) {
+  moviesModel.find({})//using model to find movies
+  .then(data => {
+    res.render('user', {movies: data}); //loading page and linking data array to movies in ejs
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
+}
+
+module.exports = { showHomepage, showUserIndex };
 
 
 
