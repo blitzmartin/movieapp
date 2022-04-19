@@ -10,4 +10,4 @@ const moviesSchema = new mongoose.Schema({
     rating: { type: String }
 })
 
-module.exports = new mongoose.model('Movies', moviesSchema);
+module.exports = new mongoose.model('Movie', moviesSchema, "movies");
