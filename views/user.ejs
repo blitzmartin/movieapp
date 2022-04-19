@@ -1,19 +1,22 @@
 <%- include ('./partials/header-log'); %>
 
-    <h1>Successfully logged in!</h1>
-    <form action="/logout?_method=DELETE" method="POST">
-  <button type="submit">Log Out</button>
-</form>
-    <div class="poster-container">
-        <% for (let i=0; i < movies.length; i++){ %>
-            <div class="poster-item">
-                <img src="<%= movies[i].poster %>" alt="poster-img"> 
-                <p><%= movies[i].title %></p>
-                <form action="" method="post">
-                    <button type="submit" class="btn btn-warning">+</button>
+    <h2>Successfully logged in! Welcome back <%=name%>
+            <h2>
+                <form action="/logout?_method=DELETE" method="POST">
+                    <button type="submit">Log Out</button>
                 </form>
-            </div>
-            <% } %>
-    </div>
+                <div class="poster-container">
+                    <% for (let i=0; i < movies.length; i++){ %>
+                        <div class="poster-item">
+                            <img src="<%= movies[i].poster %>" alt="poster-img">
+                            <p>
+                                <%= movies[i].title %>
+                            </p>
+                            <form action="" method="post">
+                                <button type="submit" class="btn btn-warning">+</button>
+                            </form>
+                        </div>
+                        <% } %>
+                </div>
 
-<%- include ('./partials/footer'); %>
+                <%- include ('./partials/footer'); %>
