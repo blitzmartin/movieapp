@@ -20,6 +20,16 @@ function showUserIndex (req, res) {
   })
 }
 
+function showWatchlist (req, res) {
+  moviesModel.find({})//using model to find movies
+  .then(data => {
+    res.render('watchlist', {movies: data}); //loading page and linking data array to movies in ejs
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
+}
+
 function logOut (req, res) {
   req.logOut()        //also passport function
   res.clearCookie("connect.sid", { path: "/" });
@@ -32,7 +42,7 @@ function logOut (req, res) {
   });
 }
 
-module.exports = { showHomepage, showUserIndex, logOut};
+module.exports = { showHomepage, showUserIndex, showWatchlist, logOut};
 
 
 
