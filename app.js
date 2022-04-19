@@ -14,7 +14,7 @@ const session = require('express-session');
 const homeRouter = require('./routes/indexRoute');
 const loginRouter= require ('./routes/loginRoute'); 
 const registerRouter= require ('./routes/registerRoute'); 
-const successRouter = require('./routes/successRoute');
+
 
 // Connect to MongoDB server on port 27017 and database
 dotenv.config();
@@ -50,7 +50,6 @@ app.use(passport.session); */
 app.use('/', homeRouter);
 app.use('/register', registerRouter); //CHECK ENDPOINT
 app.use('/login', loginRouter);
-app.use('/success', successRouter);
 
 
 // Server running

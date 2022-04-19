@@ -13,7 +13,7 @@ async function createUser (req, res) {
             username: req.body.username, 
             password: req.body.password
         });
-        res.redirect('success');  //when working, redirect to logged homepage
+        res.render('success');  //when working, redirect to logged homepage
     } catch(err) {
         console.log(err)
     }
