@@ -3,7 +3,10 @@ const router = express.Router();
 const indexController = require('../controllers/indexController')
 
 router.get('/user', isLoggedIn, indexController.showUserIndex);
-router.get('/', isNotLoggedIn,indexController.showHomepage);
+router.get('/', isNotLoggedIn, indexController.showHomepage);
+
+router.delete('/logout', isLoggedIn,  indexController.logOut)
+
 
 
 function isLoggedIn(req, res, next) {
