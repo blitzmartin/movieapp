@@ -45,7 +45,7 @@ app.use(methodOverride('_method'));
 
 //NEW use passport
 app.use(passport.initialize());
-app.use(passport.session);
+app.use(passport.session());
 
 // Use routes
 app.use('/', homeRouter);
