@@ -27,7 +27,7 @@ function showWatchlist (req, res) {
 
 // Adds movie to watchlist
 const addToWatchlist = function (req, res) {
-  res.redirect('/watchlist') //only for testing reason
+  res.redirect('/user/watchlist') //only for testing reason
 }
 
 
@@ -36,7 +36,7 @@ const deleteFromWatchlist = function (req, res) {
   watchlistModel.findByIdAndRemove({_id: req.params.id})
   .then(data => {
       if(!err) {
-          res.redirect('/watchlist');
+          res.redirect('/user/watchlist');
       }
   })
   .catch((err)=>{
