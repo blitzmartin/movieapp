@@ -51,9 +51,8 @@ const showOneMovie = function (req, res) {
   })
 }
 
-// Opens a page with movie info
+// Shows only movie in that category
 const showCategory = function (req, res) {
-
   moviesModel.find({category: req.params.category}) 
   .then(data => {
     res.render('categories', {movies: data});
