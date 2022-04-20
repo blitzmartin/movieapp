@@ -10,8 +10,8 @@
                         <div class="poster-item">
                             <img src="<%= movies[i].poster %>" alt="poster-img">
                             <p><%= movies[i].title %></p>
-                            <form action="" method="post">
-                                <button type="submit" class="btn btn-warning">+</button>
+                            <form action="/watchlist" method="post">
+                                <button type="submit" class="btn btn-warning">Add</button>
                             </form>
                         </div>
                         <% } %>

@@ -44,6 +44,10 @@ const showOneMovie = function (req, res) {
   })
 }
 
+const addToWatchlist = function (req, res) {
+  res.redirect('/watchlist') //only for testing reason
+}
+
 function logOut (req, res) {
   req.logOut
   res.clearCookie("connect.sid", { path: "/" });
@@ -56,7 +60,7 @@ function logOut (req, res) {
   });
 }
 
-module.exports = { showHomepage, showUserIndex, showWatchlist, showOneMovie, logOut};
+module.exports = { showHomepage, showUserIndex, showWatchlist, showOneMovie, addToWatchlist, logOut};
 
 
 

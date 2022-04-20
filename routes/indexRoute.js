@@ -4,9 +4,15 @@ const indexController = require('../controllers/indexController')
 
 router.get('/', isNotLoggedIn, indexController.showHomepage);
 router.get('/user', isLoggedIn, indexController.showUserIndex);
+
 router.get('/watchlist', isLoggedIn, indexController.showWatchlist);
+router.post('/watchlist', isLoggedIn, indexController.addToWatchlist);
+
 router.get('/movies/:id', isNotLoggedIn, indexController.showOneMovie);
+
 router.delete('/logout', isLoggedIn,  indexController.logOut)
+
+
 
 
 
