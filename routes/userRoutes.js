@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userControllers = require('../controllers/userControllers')
 
-router.get('/user', isLoggedIn, userControllers.showUserIndex);
+router.get('/', isLoggedIn, userControllers.showUserIndex);
 router.get('/watchlist', isLoggedIn, userControllers.showWatchlist);
 router.post('/watchlist', isLoggedIn, userControllers.addToWatchlist);
 router.delete('/watchlist/:id', isLoggedIn, userControllers.deleteFromWatchlist);
