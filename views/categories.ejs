@@ -1,6 +1,6 @@
 <%- include ('./partials/header'); %>
 
-    <h1>Only movies in this category: <%= movies[0].category %></h1>
+    <h1><%= movies[0].category %> movies</h1>
     <div class="poster-container">
         <% for (let i=0; i < movies.length; i++){ %>
             <div class="poster-item">
