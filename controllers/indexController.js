@@ -1,5 +1,6 @@
 const moviesModel = require("../models/moviesModel");
 
+// Loads public homepage
 function showHomepage (req, res) {
   moviesModel.find({})
   .then(data => {
@@ -10,6 +11,8 @@ function showHomepage (req, res) {
   })
 }
 
+
+// Loads homepage for logged user 
 function showUserIndex (req, res) {
   moviesModel.find({})
   .then(data => {
@@ -20,6 +23,8 @@ function showUserIndex (req, res) {
   })
 }
 
+
+// Loads watchlist page
 function showWatchlist (req, res) {
   moviesModel.find({})
   .then(data => {
@@ -30,6 +35,8 @@ function showWatchlist (req, res) {
   })
 }
 
+
+// Opens a page with movie info
 const showOneMovie = function (req, res) {
   moviesModel.findOne({_id: req.params.id}) 
   .then(data => {
@@ -44,10 +51,14 @@ const showOneMovie = function (req, res) {
   })
 }
 
+
+// Adds movie to watchlist
 const addToWatchlist = function (req, res) {
   res.redirect('/watchlist') //only for testing reason
 }
 
+
+// Logs user out of session
 function logOut (req, res) {
   req.logOut
   res.clearCookie("connect.sid", { path: "/" });
@@ -60,7 +71,14 @@ function logOut (req, res) {
   });
 }
 
+
 module.exports = { showHomepage, showUserIndex, showWatchlist, showOneMovie, addToWatchlist, logOut};
+
+
+
+
+
+
 
 
 
