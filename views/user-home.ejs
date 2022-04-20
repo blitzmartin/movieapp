@@ -2,9 +2,6 @@
 
     <h2>Successfully logged in! Welcome back <%=name%>
     </h2>
-                <form action="/logout?_method=DELETE" method="POST">
-                    <button type="submit">Log Out</button>
-                </form>
                 <div class="poster-container">
                     <% for (let i=0; i < movies.length; i++){ %>
                         <div class="poster-item">

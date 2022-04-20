@@ -5,12 +5,13 @@ const passport = require('passport')
 
 initialize(passport);
 
+// Loads registration page
 async function showRegister (req, res) {
     res.render('register');
 };
 
 
-// Create user
+// Creates user
 const createUser = async (req, res) =>{
     try{
         const hashedPassword = await bcrypt.hash(req.body.password, 10)
