@@ -49,6 +49,9 @@ const showOneMovie = function (req, res) {
       plot: data.plot
     });
   })
+  .catch((err)=>{
+    console.log(err);
+  })
 }
 
 // Shows only movie in that category
@@ -57,12 +60,28 @@ const showCategory = function (req, res) {
   .then(data => {
     res.render('categories', {movies: data});
   })
+  .catch((err)=>{
+    console.log(err);
+  })
 }
 
 
 // Adds movie to watchlist
 const addToWatchlist = function (req, res) {
   res.redirect('/watchlist') //only for testing reason
+}
+
+// Deletes movie from watchlist by Id // watchlistModel DOES NOT EXIST FOR NOW
+const deleteFromWatchlist = function (req, res) {
+  watchlistModel.findByIdAndRemove({_id: req.params.id})
+  .then(data => {
+      if(!err) {
+          res.redirect('/watchlist');
+      }
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
 }
 
 
@@ -80,7 +99,7 @@ function logOut (req, res) {
 }
 
 
-module.exports = { showHomepage, showUserIndex, showWatchlist, showOneMovie, addToWatchlist, showCategory, logOut};
+module.exports = { showHomepage, showUserIndex, showWatchlist, showOneMovie, addToWatchlist, showCategory, deleteFromWatchlist, logOut};
 
 
 

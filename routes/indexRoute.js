@@ -7,6 +7,7 @@ router.get('/user', isLoggedIn, indexController.showUserIndex);
 
 router.get('/watchlist', isLoggedIn, indexController.showWatchlist);
 router.post('/watchlist', isLoggedIn, indexController.addToWatchlist);
+router.delete('/watchlist/:id', isLoggedIn, indexController.deleteFromWatchlist);
 
 router.get('/movies/:id', isNotLoggedIn, indexController.showOneMovie);
 router.get('/categories/:category', isNotLoggedIn, indexController.showCategory);
