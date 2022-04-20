@@ -30,6 +30,20 @@ function showWatchlist (req, res) {
   })
 }
 
+const showOneMovie = function (req, res) {
+  moviesModel.findOne({_id: req.params.id})  //titolo
+  .then(data => {
+    res.render('one-movie', {
+      title: data.title,
+      poster: data.poster,
+      year: data.year,
+      rating: data.rating,
+      category: data.category,
+      plot: data.plot
+    });
+  })
+}
+
 function logOut (req, res) {
   req.logOut()        //also passport function
   res.clearCookie("connect.sid", { path: "/" });
@@ -42,7 +56,7 @@ function logOut (req, res) {
   });
 }
 
-module.exports = { showHomepage, showUserIndex, showWatchlist, logOut};
+module.exports = { showHomepage, showUserIndex, showWatchlist, showOneMovie, logOut};
 
 
 
