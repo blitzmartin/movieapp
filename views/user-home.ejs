@@ -9,9 +9,7 @@
                     <% for (let i=0; i < movies.length; i++){ %>
                         <div class="poster-item">
                             <img src="<%= movies[i].poster %>" alt="poster-img">
-                            <p>
-                                <%= movies[i].title %>
-                            </p>
+                            <p><%= movies[i].title %></p>
                             <form action="" method="post">
                                 <button type="submit" class="btn btn-warning">+</button>
                             </form>

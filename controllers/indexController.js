@@ -1,9 +1,9 @@
 const moviesModel = require("../models/moviesModel");
 
 function showHomepage (req, res) {
-  moviesModel.find({})//using model to find movies
+  moviesModel.find({})
   .then(data => {
-    res.render('index', {movies: data}); //loading page and linking data array to movies in ejs
+    res.render('index', {movies: data}); 
   })
   .catch((err)=>{
     console.log(err);
@@ -11,9 +11,9 @@ function showHomepage (req, res) {
 }
 
 function showUserIndex (req, res) {
-  moviesModel.find({})//using model to find movies
+  moviesModel.find({})
   .then(data => {
-    res.render('user', {movies: data, name: req.user.username}); //loading page and linking data array to movies in ejs
+    res.render('user-home', {movies: data, name: req.user.username}); 
   })
   .catch((err)=>{
     console.log(err);
@@ -21,9 +21,9 @@ function showUserIndex (req, res) {
 }
 
 function showWatchlist (req, res) {
-  moviesModel.find({})//using model to find movies
+  moviesModel.find({})
   .then(data => {
-    res.render('watchlist', {movies: data}); //loading page and linking data array to movies in ejs
+    res.render('watchlist', {movies: data}); 
   })
   .catch((err)=>{
     console.log(err);
@@ -31,7 +31,7 @@ function showWatchlist (req, res) {
 }
 
 const showOneMovie = function (req, res) {
-  moviesModel.findOne({_id: req.params.id})  //titolo
+  moviesModel.findOne({_id: req.params.id}) 
   .then(data => {
     res.render('one-movie', {
       title: data.title,
@@ -45,7 +45,7 @@ const showOneMovie = function (req, res) {
 }
 
 function logOut (req, res) {
-  req.logOut()        //also passport function
+  req.logOut
   res.clearCookie("connect.sid", { path: "/" });
 
   req.session.destroy(function (err) {
