@@ -9,7 +9,7 @@ router.post('/', isNotLoggedIn, registerController.createUser);
 
 function isNotLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
-      return res.redirect('/index')
+      return res.redirect('/')
     }
     next()
   }
