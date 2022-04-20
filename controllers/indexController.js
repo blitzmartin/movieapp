@@ -71,6 +71,7 @@ const addToWatchlist = function (req, res) {
   res.redirect('/watchlist') //only for testing reason
 }
 
+
 // Deletes movie from watchlist by Id // watchlistModel DOES NOT EXIST FOR NOW
 const deleteFromWatchlist = function (req, res) {
   watchlistModel.findByIdAndRemove({_id: req.params.id})
