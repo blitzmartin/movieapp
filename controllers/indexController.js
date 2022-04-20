@@ -51,6 +51,15 @@ const showOneMovie = function (req, res) {
   })
 }
 
+// Opens a page with movie info
+const showCategory = function (req, res) {
+
+  moviesModel.find({category: req.params.category}) 
+  .then(data => {
+    res.render('categories', {movies: data});
+  })
+}
+
 
 // Adds movie to watchlist
 const addToWatchlist = function (req, res) {
@@ -72,7 +81,7 @@ function logOut (req, res) {
 }
 
 
-module.exports = { showHomepage, showUserIndex, showWatchlist, showOneMovie, addToWatchlist, logOut};
+module.exports = { showHomepage, showUserIndex, showWatchlist, showOneMovie, addToWatchlist, showCategory, logOut};
 
 
 
