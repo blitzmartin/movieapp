@@ -25,4 +25,33 @@ const createUser = async (req, res) =>{
     }
 };
 
-module.exports = { showRegister, createUser };
+// Loads login page
+const showLogin = function (req, res) {
+    res.render('login');
+}
+
+// Checks if user has an account and if the password is correct
+const findUser = async (req, res) => {
+    passport.authenticate('local',{
+        successRedirect: '/user',
+        failureRedirect: '/auth/login'
+    })(req, res);
+}
+
+
+// Logs user out of session
+function logOut (req, res) {
+    req.logOut
+    res.clearCookie("connect.sid", { path: "/" });
+  
+    req.session.destroy(function (err) {
+      if (err) {
+        return next(err);
+      }
+      res.redirect('/')
+    });
+}
+
+
+
+module.exports = { showRegister, createUser, showLogin, findUser, logOut };

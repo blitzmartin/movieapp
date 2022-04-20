@@ -11,9 +11,10 @@ const flash = require('express-flash');
 const session = require('express-session');
 
 // Require routes
-const homeRouter = require('./routes/indexRoute');
-const loginRouter= require ('./routes/loginRoute'); 
-const registerRouter= require ('./routes/registerRoute'); 
+const publicRouter = require('./routes/publicRoutes');
+const authRouter= require ('./routes/authRoutes');
+const userRouter = require('./routes/userRoutes');
+
 
 
 // Connect to MongoDB server on port 27017 and database
@@ -48,10 +49,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Use routes
-app.use('/', homeRouter);
-app.use('/register', registerRouter); //CHECK ENDPOINT
-app.use('/login', loginRouter);
-
+app.use('/', publicRouter);
+app.use('/auth', authRouter);
+app.use('/user', userRouter);
 
 // Server running
 const port = process.env.PORT || 3000;
